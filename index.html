@@ -1,0 +1,256 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Form</title>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #ffffff9a;
+    }
+
+    h1 {
+      text-align: center;
+    }
+    .heading{
+        background-color: rgb(17, 83, 205);
+        padding:20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .form,.form-gender{
+      margin-bottom: 15px;
+    }
+
+    .form label,.form-gender label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form input {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form select {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-button {
+      display: block;
+      width: 96%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #034d06;
+    }
+    .required{
+        color: red;
+    }
+    </style>
+</head>
+<body bgcolor="cyan">
+    <h1 align="center">Google Form</h1>
+    <div class="container">
+        <form>
+          <div class="form">
+            <label for="first-name">First Name<span class="required">*</span></label>
+            <input type="text" name="first-name" placeholder ="First Name" required>
+          </div>
+          <div class="form">
+            <label for="last-name">Last Name<span class="required">*</span></label>
+            <input type="text" name="last-name" placeholder="Last Name" required>
+          </div>
+          <div class="form">
+            <label for="phone-number">Phone Number<span class="required">*</span></label>
+            <input type="tel" name="phone-number" placeholder="Enter your Phone number " required>
+          </div>
+          <div class="form">
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="email" name="email-id" placeholder="Enter your valid Email id" required>
+          </div>
+          <div class="form-gender">
+            <label for="Gender">Gender</label>
+            <input type="radio" id="mail" name="radio1" value="Male">Male<br>
+            <input type="radio" id="female" name="radio1" value="Female">Female<br>
+          </div>
+          <button type="submit" class="submit-button">Submit</a></button>
+          <script>
+            document.getElementById("form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                // Retrieve form input values
+                var firstName = document.getElementsByName("first-name")[0].value;
+                var lastName = document.getElementsByName("last-name")[0].value;
+                var phoneNumber = document.getElementsByName("phone-number")[0].value;
+                var email = document.getElementsByName("email-id")[0].value;
+                var gender = document.querySelector("input[name='gender']:checked");
+
+                // Validate form inputs (add your own validation logic here)
+                if (firstName === "" || lastName === "" || phoneNumber === "" || email === "" || gender === null) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                // Form submission successful
+                document.getElementById("success-message").style.display = "block";
+                document.getElementById("form").reset();
+            });
+        </script>
+        </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Form</title>
+    <style>
+        /* Styles */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #ffffff9a;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .heading {
+            background-color: rgb(17, 83, 205);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .form,
+        .form-gender {
+            margin-bottom: 15px;
+        }
+
+        .form label,
+        .form-gender label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form select {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            display: block;
+            width: 96%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #034d06;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .success-message {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Google Form</h1>
+    <div class="container">
+        <form id="form">
+            <div class="form">
+                <label for="first-name">First Name<span class="required">*</span></label>
+                <input type="text" name="first-name" placeholder="First Name" required>
+            </div>
+            <div class="form">
+                <label for="last-name">Last Name<span class="required">*</span></label>
+                <input type="text" name="last-name" placeholder="Last Name" required>
+            </div>
+            <div class="form">
+                <label for="phone-number">Phone Number<span class="required">*</span></label>
+                <input type="tel" name="phone-number" placeholder="Enter your Phone number " required>
+            </div>
+            <div class="form">
+                <label for="email">Email<span class="required">*</span></label>
+                <input type="email" name="email-id" placeholder="Enter your valid Email id" required>
+            </div>
+            <div class="form-gender">
+                <label for="Gender">Gender</label>
+                <input type="radio" id="mail" name="gender" value="Male">Male<br>
+                <input type="radio" id="female" name="gender" value="Female">Female<br>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+
+        <div id="success-message" class="success-message" style="display: none;">
+            Form submitted successfully!
+        </div>
+
+        <script>
+            document.getElementById("form").addEventListener("submit", function (event) {
+                event.preventDefault(); 
+                var firstName = document.getElementsByName("first-name")[0].value;
+                var lastName = document.getElementsByName("last-name")[0].value;
+                var phoneNumber = document.getElementsByName("phone-number")[0].value;
+                var email = document.getElementsByName("email-id")[0].value;
+                var gender = document.querySelector("input[name='gender']:checked");
+                document.getElementById("success-message").style.display = "block";
+                document.getElementById("form").reset();
+            });
+        </script>
+    </div>
+</body>
+</html>
